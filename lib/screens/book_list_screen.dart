@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../cubit/book_cubit.dart';
+import '../widgets/book_card.dart';
 
 class BookListScreen extends StatelessWidget {
   @override
@@ -70,15 +71,7 @@ class BookListScreen extends StatelessWidget {
                           ),
                         );
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            Image.network(book.imageUrl, height: 150, width: 100),
-                            Text(book.title),
-                          ],
-                        ),
-                      ),
+                      child: BookCard(imageUrl: book.imageUrl, title: book.title),
                     );
                   },
                 ),

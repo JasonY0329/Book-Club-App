@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/book.dart';
+import '../widgets/book_detail.dart';
 
 class BookDetailScreen extends StatelessWidget {
   final Book book;
@@ -25,25 +26,12 @@ class BookDetailScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Image.network(book.imageUrl, height: 200),
-            const SizedBox(height: 16),
-            Text(
-              book.title,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              book.author,
-              style: const TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
-            ),
-            const SizedBox(height: 16),
-            Text(book.description),
-          ],
-        ),
-      ),
+      body: SingleChildScrollView(child: BookDetail(
+        imageUrl: book.imageUrl,
+        title: book.title,
+        author: book.author,
+        description: book.description,
+      ))
     );
   }
 }
